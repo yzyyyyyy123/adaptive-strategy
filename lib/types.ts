@@ -1,0 +1,14 @@
+export type Rect={x:number;y:number;width:number;height:number};
+export type Evidence={id:string;page:number;quote:string;rects:Rect[];status:'suggested'|'verified';kind?:'text'|'region';score?:number;createdBy?:string;pdfHash?:string};
+export type DimensionAxis='designs'|'targets';
+export type DimensionSection={id:string;name:string;definition:string;order:number;archived?:boolean;archivedByNode?:string};
+export type DimensionGroup={id:string;name:string;color:string;definition:string;sections:DimensionSection[];archived?:boolean;archivedByNode?:string};
+export type Facet={id:string;group:string;groupId?:string;sectionId?:string;secondary?:string;label:string;definition:string;references:string;color?:string;order?:number;archived?:boolean;archivedByNode?:string};
+export type Taxonomy={designs:Facet[];targets:Facet[];version:string;references:Record<string,[string,string]>;groups?:Record<DimensionAxis,DimensionGroup[]>;revision?:number;updatedAt?:string;updatedBy?:string};
+export type Paper={id:string;title:string;authors:string;year:number|null;venue:string;doi:string;sourceUrl:string;pdfKey:string|null;pdfHash?:string;pageCount:number;metadataState:string;metadataSource:string;version:number;strategyCount?:number};
+export type Strategy={id:string;paperId:string;example:string;summary:string;designCodes:string[];targetCodes:string[];eligible:boolean;evidence:Evidence[];scope:string;locator:string;sourceUrl:string;reason:string;original?:Record<string,unknown>;createdBy?:string};
+export type User={id:string;handle:string;name:string;role:'owner'|'reviewer';disabled?:number};
+export type Annotation={id?:string;strategyId:string;userId?:string;userName?:string;mode:'personal'|'consensus';designCodes:string[];targetCodes:string[];summary:string;reason:string;status:'draft'|'reviewed'|'discussion'|'provisional'|'agreed';eligible:boolean;evidence:Evidence[];version:number;updatedAt?:string};
+export const DESIGN_COLORS:Record<string,string>={'Visual Representation':'#0D8F87',Layout:'#356AC3',Interaction:'#9861B4'};
+export const TARGET_COLORS:Record<string,string>={Proxemics:'#CA7B36','Activity & Intent':'#BB9A32','Environmental Context':'#638C54',User:'#BE647E','Platform State':'#6C7AB4','Content Properties':'#8D7660'};
+export const strategyColor=(index:number)=>`hsl(${(index*137.508+24)%360} 71% 57%)`;
