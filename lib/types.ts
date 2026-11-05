@@ -1,5 +1,5 @@
 export type Rect={x:number;y:number;width:number;height:number};
-export type Evidence={id:string;page:number;quote:string;rects:Rect[];status:'suggested'|'verified';kind?:'text'|'region';score?:number;createdBy?:string;pdfHash?:string};
+export type Evidence={id:string;page:number;quote:string;rects:Rect[];status:'suggested'|'verified';kind?:'text'|'region';score?:number;createdBy?:string;pdfHash?:string;description?:string};
 export type DimensionAxis='designs'|'targets';
 export type DimensionSection={id:string;name:string;definition:string;order:number;archived?:boolean;archivedByNode?:string};
 export type DimensionGroup={id:string;name:string;color:string;definition:string;sections:DimensionSection[];archived?:boolean;archivedByNode?:string};
