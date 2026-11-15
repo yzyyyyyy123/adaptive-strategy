@@ -41,3 +41,17 @@
 .tagged-strategies li button svg{flex:none}
 .tagged-strategies strong,.tagged-strategies small{display:block;overflow-wrap:anywhere}
 .tagged-strategies small{margin-top:3px}
+
+.review-queue{max-width:900px;margin:0 auto;padding:32px 24px 56px}
+.review-queue header{margin-bottom:20px}
+.review-queue h1{margin:0 0 4px}
+.review-queue header p{margin:0 0 8px;color:var(--muted)}
+.queue-paper{border-top:1px solid var(--border);padding:16px 0}
+.queue-paper small,.queue-paper li span{color:#52666b;font-variant-numeric:tabular-nums}
+.queue-paper h2{font-size:17px;line-height:1.35;margin:4px 0 6px}
+.queue-paper button{color:inherit;background:none;border:0;text-align:left;line-height:1.4}
+.queue-paper h2 button{font:inherit;padding:0}
+.queue-paper ul{list-style:none;padding:0;margin:0}
+.queue-paper li button{display:flex;align-items:baseline;gap:12px;padding:5px 4px;width:100%}
+.queue-paper li span{min-width:4ch;font-size:.9em}
+.queue-paper button:hover,.queue-paper button:focus-visible{color:#006a62;text-decoration:underline}
