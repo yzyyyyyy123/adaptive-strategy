@@ -1,6 +1,8 @@
 export type Rect={x:number;y:number;width:number;height:number};
 export type Evidence={id:string;page:number;quote:string;rects:Rect[];status:'suggested'|'verified';kind?:'text'|'region';score?:number;createdBy?:string;pdfHash?:string;description?:string};
 export type DimensionAxis='designs'|'targets';
+export type StrategyExplanationZh={summary:string;pattern:string;note?:string};
+export type TaggedReview={strategyId:string;mode:'personal'|'consensus';status:Annotation['status'];reviewer:string};
 export type DimensionSection={id:string;name:string;definition:string;order:number;archived?:boolean;archivedByNode?:string};
 export type DimensionGroup={id:string;name:string;color:string;definition:string;sections:DimensionSection[];archived?:boolean;archivedByNode?:string};
 export type Facet={id:string;group:string;groupId?:string;sectionId?:string;secondary?:string;label:string;definition:string;references:string;color?:string;order?:number;archived?:boolean;archivedByNode?:string};
@@ -8,7 +10,7 @@ export type Taxonomy={designs:Facet[];targets:Facet[];version:string;references:
 export type Paper={id:string;title:string;authors:string;year:number|null;venue:string;doi:string;sourceUrl:string;pdfKey:string|null;pdfHash?:string;pageCount:number;metadataState:string;metadataSource:string;version:number;strategyCount?:number};
 export type SourceAudit={revision:string;date:string;decision:'keep'|'revise'|'exclude'|'uncertain';reasonCode:string;reason:string;evidenceType:string;oldHighlightAssessment:string;notes:string;method:'ai_source_audit'};
 export type UnitAudit={revision:string;familyId:string;role:'standalone'|'branch'|'variant'|'merged';canonicalId?:string;implementation:string;evidenceAssessment:string;checkedPages:number[];reviewRequiredFor:string[];reviewAfter:string;changeReason:string};
-export type Strategy={id:string;paperId:string;example:string;summary:string;designCodes:string[];targetCodes:string[];eligible:boolean;evidence:Evidence[];scope:string;locator:string;sourceUrl:string;reason:string;original?:Record<string,unknown>;createdBy?:string;archived?:boolean;sourceRevision?:number;audit?:SourceAudit;unitAudit?:UnitAudit};
+export type Strategy={id:string;paperId:string;example:string;summary:string;explanationZh?:StrategyExplanationZh;labelMigration?:{uncoveredDesign?:boolean};designCodes:string[];targetCodes:string[];eligible:boolean;evidence:Evidence[];scope:string;locator:string;sourceUrl:string;reason:string;original?:Record<string,unknown>;createdBy?:string;archived?:boolean;sourceRevision?:number;audit?:SourceAudit;unitAudit?:UnitAudit};
 export type User={id:string;handle:string;name:string;role:'owner'|'reviewer';disabled?:number};
 export type Annotation={id?:string;strategyId:string;userId?:string;userName?:string;mode:'personal'|'consensus';designCodes:string[];targetCodes:string[];summary:string;reason:string;status:'draft'|'reviewed'|'discussion'|'provisional'|'agreed';eligible:boolean;evidence:Evidence[];version:number;updatedAt?:string;sourceRevision?:number};
 export const DESIGN_COLORS:Record<string,string>={'Visual Representation':'#0D8F87',Layout:'#356AC3',Interaction:'#9861B4'};
